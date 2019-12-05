@@ -1,0 +1,7 @@
+node_modules
+dist/
+test/
+views/
+webpack.config.js
+script/
+!.eslintrc.js

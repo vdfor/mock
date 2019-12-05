@@ -1,0 +1,14 @@
+{
+  "restartable": "rs",
+  "watch": [
+    "src/**/*.ts"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
+  "verbose": true,
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts json"
+}
