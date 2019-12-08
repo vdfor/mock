@@ -27,10 +27,11 @@ GET
 
 #### 入参 
 
-| 参数 | 说明 | 类型 | 默认值 |
+| 参数 | 类型 | 是否必须 | 说明 |
 | --- | --- | --- | --- |
-| pageNum | 当前页 | number | -- |
-| pageSize | 每页条数 | number | -- |
+| pageNum | number | 是 | 当前页 |
+| pageSize | number | 是 | 每页条数 | 
+| empty | string | 否 | 是否返回一个空数组 |
 
 #### 返回值
 

@@ -9,7 +9,11 @@ const listApi: IApi[] = [
     path: '/quark-mobile/list',
     policies: [validator({ query: ['pageNum', 'pageSize'] })],
     action: (ctx: RouterContext) => {
-      const { pageNum, pageSize } = ctx.query;
+      const { pageNum, pageSize, empty } = ctx.query;
+      if (empty) {
+        ctx.body = [];
+        return;
+      }
       ctx.body = +pageNum > 5 ? [] : [...new Array(+pageSize)].map(() => ({
         id: shortid.generate(),
         num: Math.floor(Math.random() * 1000),
