@@ -8,12 +8,23 @@ const listApi: IApi[] = [
     method: 'get',
     path: '/quark-mobile/list',
     policies: [validator({ query: ['pageNum', 'pageSize'] })],
-    action: (ctx: RouterContext) => {
-      const { pageNum, pageSize, empty } = ctx.query;
-      if (empty) {
+    action: async (ctx: RouterContext) => {
+      const { pageNum, pageSize, status } = ctx.query;
+      if (status === 'empty') {
         ctx.body = [];
         return;
       }
+
+      if (status === 'error') {
+        ctx.throw(new Error('非法访问'), 403);
+        return;
+      }
+
+      // await new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve();
+      //   }, 1000);
+      // });
       ctx.body = +pageNum > 5 ? [] : [...new Array(+pageSize)].map(() => ({
         id: shortid.generate(),
         num: Math.floor(Math.random() * 1000),

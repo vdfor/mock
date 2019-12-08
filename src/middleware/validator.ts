@@ -9,7 +9,7 @@ const validator = (opts: IOptions) => async (ctx: RouterContext, next: () => voi
   if (opts.query) {
     opts.query.forEach((ele) => {
       if (!ctx.query[ele]) {
-        ctx.throw(`params errors:「${ele} 」is necessary`);
+        ctx.throw(new Error(`params errors:「${ele} 」is necessary`));
       }
     });
   }
@@ -17,7 +17,7 @@ const validator = (opts: IOptions) => async (ctx: RouterContext, next: () => voi
   if (opts.body) {
     opts.body.forEach((ele) => {
       if (!ctx.request.body[ele]) {
-        ctx.throw(`params errors:「${ele} 」is necessary`);
+        ctx.throw(new Error(`params errors:「${ele} 」is necessary`));
       }
     });
   }

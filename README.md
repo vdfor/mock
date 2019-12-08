@@ -31,7 +31,7 @@ GET
 | --- | --- | --- | --- |
 | pageNum | number | 是 | 当前页 |
 | pageSize | number | 是 | 每页条数 | 
-| empty | string | 否 | 是否返回一个空数组 |
+| status | string | 否 | empty - 返回空数组; error - 返回错误 |
 
 #### 返回值
 
