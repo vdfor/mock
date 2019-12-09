@@ -1,6 +1,6 @@
 # @vdfor/mock
 
-mock for project
+> mock for project, powered by [koa-sail-ts](https://github.com/vdfor/koa-sail-ts)
 
 ## docker build
 
@@ -16,6 +16,10 @@ docker run --name mock -p 10010:8181 -v /home/docker/mock/logs:/usr/src/app/logs
 echo 'finished'
 exit 0
 ```
+
+## 服务项目
+
+/quark-mobile - [@vdfor/quark-taro](https://github.com/vdfor/quark-taro)
 
 ## rest-api
 
