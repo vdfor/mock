@@ -9,7 +9,9 @@ const listApi: IApi[] = [
     path: '/quark-mobile/list',
     policies: [validator({ query: ['pageNum', 'pageSize'] })],
     action: async (ctx: RouterContext) => {
-      const { pageNum, pageSize, status } = ctx.query;
+      const {
+        pageNum, pageSize, status, delay,
+      } = ctx.query;
       if (status === 'empty') {
         ctx.body = [];
         return;
@@ -20,11 +22,14 @@ const listApi: IApi[] = [
         return;
       }
 
-      // await new Promise((resolve) => {
-      //   setTimeout(() => {
-      //     resolve();
-      //   }, 1000);
-      // });
+      if (delay) {
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, delay);
+        });
+      }
+
       ctx.body = +pageNum > 5 ? [] : [...new Array(+pageSize)].map(() => ({
         id: shortid.generate(),
         num: Math.floor(Math.random() * 1000),
