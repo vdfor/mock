@@ -36,6 +36,7 @@ GET
 | pageNum | number | 是 | 当前页 |
 | pageSize | number | 是 | 每页条数 | 
 | status | string | 否 | empty - 返回空数组; error - 返回错误 |
+| delay | number | 否 | 毫秒，存在代表延迟delay时长返回数据 |
 
 #### 返回值
 
