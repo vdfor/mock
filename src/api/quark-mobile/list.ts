@@ -10,7 +10,7 @@ const listApi: IApi[] = [
     policies: [validator({ query: ['pageNum', 'pageSize'] })],
     action: async (ctx: RouterContext) => {
       const {
-        pageNum, pageSize, status, delay,
+        pageNum, pageSize, status, delay, total = 100,
       } = ctx.query;
       if (status === 'empty') {
         ctx.body = [];
@@ -30,7 +30,7 @@ const listApi: IApi[] = [
         });
       }
 
-      ctx.body = +pageNum > 5 ? [] : [...new Array(+pageSize)].map(() => ({
+      ctx.body = +pageNum * +pageSize > total ? [] : [...new Array(+pageSize)].map(() => ({
         id: shortid.generate(),
         num: Math.floor(Math.random() * 1000),
         title: 'Taro是什么',
