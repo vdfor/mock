@@ -6,7 +6,19 @@ const guideSwiperApi: IApi[] = [
   {
     method: 'get',
     path: '/quark-taro/swiper',
-    action: (ctx: RouterContext) => {
+    action: async (ctx: RouterContext) => {
+      const {
+        delay,
+      } = ctx.query;
+
+      if (delay) {
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, delay);
+        });
+      }
+
       ctx.body = [
         {
           id: shortId.generate(),
